@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +15,6 @@ public class SampleController {
 	@GetMapping("/sample")
 	public String sample() {
 		System.out.println("aaaaaaaaaaaaaaaaaaaa3");
-		return "";
+		return "connection OK";
 	}
 }
