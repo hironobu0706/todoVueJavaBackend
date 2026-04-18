@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.demo.model.CustomerInfo;
+import com.example.demo.model.Login;
 
 @Mapper
 public interface CustomerInfoMapper {
@@ -12,4 +13,7 @@ public interface CustomerInfoMapper {
     List<CustomerInfo> selectAll();
 	
 	int createCustomer(CustomerInfo request);
+
+	// ログイン機能
+	Login loginAuth(String mailAddress, String password);
 }

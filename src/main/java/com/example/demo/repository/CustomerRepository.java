@@ -9,8 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.mapper.CustomerInfoMapper;
 import com.example.demo.model.CustomerInfo;
-
-import request.RequestCustomerForm;
+import com.example.demo.model.Login;
 
 @Repository
 @Transactional
@@ -42,4 +41,8 @@ public class CustomerRepository {
     public int createCustomer(CustomerInfo request) {
         return mapper.createCustomer(request);
     }
+
+	public Login loginAuth(String mailAddress, String password) {
+		return mapper.loginAuth(mailAddress, password);
+	}
 }
