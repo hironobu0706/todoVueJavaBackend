@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.CustomerInfo;
-import com.example.demo.model.Login;
 import com.example.demo.repository.CustomerRepository;
 
 import request.RequestCustomerForm;
@@ -71,8 +70,8 @@ public class CustomerService {
     
     // メールアドレス、パスワードを受け取り
     // ログインテーブルからパラメータのメールアドレス、パスワードに一致するレコード取得
-	public Login loginAuth(String mailAddress, String password) {
-		Login responseLogin = new Login();
+	public CustomerInfo loginAuth(String mailAddress, String password) {
+		CustomerInfo responseLogin = new CustomerInfo();
 		responseLogin = customerRepository.loginAuth(mailAddress, password);
 		if(responseLogin == null) {
 			return null;

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.CustomerInfo;
-import com.example.demo.model.Login;
 import com.example.demo.request.RequestLoginForm;
 import com.example.demo.service.CustomerService;
 
@@ -43,22 +42,13 @@ public class CustomerController {
     }
 
 	@PostMapping("/loginAuth")
-	public Login loginAuth(@RequestBody RequestLoginForm request) {
-		System.out.println("bbbbbbbbbbb");
-		Login responseLogin = new Login();
+	public CustomerInfo loginAuth(@RequestBody RequestLoginForm request) {
+		CustomerInfo responseLogin = new CustomerInfo();
 		responseLogin = service.loginAuth(request.getMailAddress(), request.getPassword());
 		
 		if(Objects.isNull(responseLogin)) {
 			return null;
 		}
-		
-		// トークンを生成しsession、レスポンスに格納
-//		String hash = Hash.hashString(responseLogin.getUser_id());
-//		session.setAttribute("loginToken", hash);
-		
-//		responseLogin.setToken(hash);
-//		System.out.println("1session:"+session.getAttribute("loginToken"));
-
 		return responseLogin;
 	}
 }
